@@ -21,6 +21,10 @@ function addTaskToDOM(taskText, isCompleted = false) {
   btnDelete.innerHTML = '<i class="fa-solid fa-xmark"></i>';
   btnDelete.classList.add("btn-delete");
 
+  let btnEdit = document.createElement("button");
+  btnEdit.innerHTML = '<i class="fa-solid fa-pencil"></i>';
+  btnEdit.classList.add("btn-edit");
+
   btnComplete.addEventListener("click", function () {
     newTaskText.classList.toggle("completed");
     saveTasksToLocalStorage();
@@ -34,7 +38,33 @@ function addTaskToDOM(taskText, isCompleted = false) {
     saveTasksToLocalStorage();
   });
 
+  btnEdit.addEventListener("click", function () {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = newTaskText.textContent;
+    input.classList.add("edit-input");
+
+    newTaskText.replaceWith(input);
+    input.focus();
+
+    input.addEventListener("blur", saveEdit);
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") saveEdit();
+    });
+
+    function saveEdit() {
+      const newText = input.value.trim();
+      if (newText !== "") {
+        newTaskText.textContent = newText;
+      }
+      input.replaceWith(newTaskText);
+      saveTasksToLocalStorage();
+    }
+  });
+
+
   newTask.appendChild(newTaskText);
+  newTask.appendChild(btnEdit);
   newTask.appendChild(btnComplete);
   newTask.appendChild(btnDelete);
 

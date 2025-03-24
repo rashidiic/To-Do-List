@@ -81,7 +81,7 @@ body {
   max-width: 70%;
 }
 .main-section .task-item .btn-complete,
-.main-section .task-item .btn-delete {
+.main-section .task-item .btn-delete, .main-section .task-item .btn-edit {
   border: none;
   background: none;
   font-size: 18px;
@@ -109,6 +109,26 @@ body {
 }
 .main-section .task-item .btn-delete:hover {
   background-color: #ffe0e0;
+}
+.main-section .task-item .btn-edit {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.main-section .task-item .btn-edit:hover {
+  background-color: #e0ecf8;
+}
+.main-section .task-item .edit-input {
+  width: 100%;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  outline: none;
+  color: #212529;
+}
+.main-section .task-item .edit-input:focus {
+  border-color: transparent;
+  background: transparent;
 }
 .main-section .completed {
   text-decoration: line-through;

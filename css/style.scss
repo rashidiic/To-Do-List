@@ -87,7 +87,7 @@ body {
         }
 
         .btn-complete,
-        .btn-delete {
+        .btn-delete, .btn-edit {
             border: none;
             background: none;
             font-size: 18px;
@@ -118,6 +118,30 @@ body {
                 background-color: #ffe0e0;
             }
         }
+
+        .btn-edit {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1.2rem;
+            &:hover {
+                background-color: #e0ecf8;
+            }
+        }
+
+        .edit-input {
+            width: 100%;
+            font-size: 16px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            outline: none;
+            color: #212529;
+            
+            &:focus {
+              border-color: transparent;
+              background: transparent;
+            }
+          }
+          
     }
     .completed {
         text-decoration: line-through;
