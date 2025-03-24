@@ -3,12 +3,73 @@ body {
   color: #212529;
 }
 
-.main-section .main-box .title-box {
+.main-section .main-box .mainbox-info {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 3rem;
+}
+.main-section .main-box .mainbox-info .title-box {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
   margin-top: 3rem;
+}
+.main-section .main-box .mainbox-info .title-box h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+.main-section .main-box .mainbox-info .functions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+}
+.main-section .main-box .mainbox-info .functions button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1cbe8e;
+  margin-left: 15px;
+  color: #fff;
+}
+.main-section .main-box #search-box {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 3rem;
+}
+.main-section .main-box #search-box input {
+  border: none;
+  border-radius: 15px;
+  width: 50%;
+  padding: 15px;
+  background-color: #dedede;
+  outline: none;
+}
+.main-section .main-box #search-box button {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1cbe8e;
+  margin-left: 15px;
+  color: #fff;
+}
+.main-section .main-box #search-box button i {
+  font-size: 1.5rem;
+}
+.main-section .main-box #search-box:active {
+  display: block;
+}
+.main-section .main-box .title-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
 }
 .main-section .main-box .input-box {
   display: flex;
@@ -81,7 +142,8 @@ body {
   max-width: 70%;
 }
 .main-section .task-item .btn-complete,
-.main-section .task-item .btn-delete, .main-section .task-item .btn-edit {
+.main-section .task-item .btn-delete,
+.main-section .task-item .btn-edit {
   border: none;
   background: none;
   font-size: 18px;
@@ -164,6 +226,19 @@ body {
   }
 }
 @media (max-width: 480px) {
+  .search-box input {
+    width: 100% !important;
+    padding: 12px;
+  }
+  .search-box button {
+    padding: 8px 12px;
+  }
+  .functions {
+    flex-wrap: wrap;
+  }
+  .functions button {
+    margin: 10px 0;
+  }
   .main-section .title-box {
     text-align: center;
   }

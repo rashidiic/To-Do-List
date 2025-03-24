@@ -17,12 +17,25 @@
         <div class="container">
             <div class="row">
                 <div class="main-box">
-                    <div class="main-part">
+                    <div class="mainbox-info">
                         <div class="title-box">
                             <h1>Your To Do List App!</h1>
                         </div>
+                        <div class="functions">
+                            <button id="btn-all" class="active">All</button>
+                            <button id="btn-active">Active</button>
+                            <button id="btn-completed">Completed</button>
+                            <button id="btn-clear">Clear Completed</button>
+                            <button id="btn-search"><i class="fa-solid fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div id="search-box" class="search-box">
+                        <input type="text" id="search" placeholder="Search...">
+                        <button><i class="fa-solid fa-search"></i></button>
+                    </div>
+                    <div class="main-part">
                         <div class="input-box">
-                            <input type="text" id="input">
+                            <input type="text" id="input" placeholder="Add a new task...">
                             <button id="btn-add"><i class="fa-solid fa-plus"></i></button>
                         </div>
                         <div id="tasks-box"></div>

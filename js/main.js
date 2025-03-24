@@ -73,6 +73,22 @@ function addTaskToDOM(taskText, isCompleted = false) {
   tasksBox.style.display = "flex";
 }
 
+// ##############################################################
+
+let searchBox = document.getElementById("search-box");
+let btnSearch = document.getElementById("btn-search");
+
+btnSearch.addEventListener("click", function () {
+  // if(searchBox.style.display === "none"){
+  //   searchBox.style.display = "flex";
+  // } else {
+  //   searchBox.style.display = "none";
+  // }
+  searchBox.classList.toggle("active");
+});
+
+// ##############################################################
+
 function saveTasksToLocalStorage() {
   const tasks = [];
 
