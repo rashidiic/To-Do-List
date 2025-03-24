@@ -199,6 +199,19 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .search-box input {
+    width: 100% !important;
+    padding: 12px;
+  }
+  .search-box button {
+    padding: 8px 12px;
+  }
+  .functions {
+    flex-wrap: wrap;
+  }
+  .functions button {
+    margin: 10px 0;
+  }
   .main-section .input-box input {
     width: 100%;
   }
@@ -207,6 +220,19 @@ body {
   }
 }
 @media (max-width: 768px) {
+  .search-box input {
+    width: 100% !important;
+    padding: 12px;
+  }
+  .search-box button {
+    padding: 8px 12px;
+  }
+  .functions {
+    flex-wrap: wrap;
+  }
+  .functions button {
+    margin: 10px 0;
+  }
   .main-section .input-box input {
     width: 90%;
     padding: 12px;
