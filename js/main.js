@@ -73,21 +73,31 @@ function addTaskToDOM(taskText, isCompleted = false) {
   tasksBox.style.display = "flex";
 }
 
-// ##############################################################
 
 let searchBox = document.getElementById("search-box");
 let btnSearch = document.getElementById("btn-search");
 
 btnSearch.addEventListener("click", function () {
-  // if(searchBox.style.display === "none"){
-  //   searchBox.style.display = "flex";
-  // } else {
-  //   searchBox.style.display = "none";
-  // }
   searchBox.classList.toggle("active");
 });
 
-// ##############################################################
+function searchTasks() {
+  const searchTerm = document.getElementById("search").value.toLowerCase();
+  const tasks = document.querySelectorAll('.task-item');
+
+  tasks.forEach(task => {
+    const taskText = task.querySelector('p').textContent.toLowerCase();
+    if (taskText.includes(searchTerm)) {
+      task.style.display = 'flex';
+    } else {
+      task.style.display = 'none';
+    }
+  });
+}
+
+document.getElementById("search").addEventListener("input", searchTasks);
+
+
 
 function saveTasksToLocalStorage() {
   const tasks = [];

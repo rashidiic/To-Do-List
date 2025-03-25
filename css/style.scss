@@ -5,6 +5,7 @@ body {
 
 .main-section {
     .main-box {
+        position: relative;
         .mainbox-info {
             align-items: center;
             justify-content: center;
@@ -40,9 +41,15 @@ body {
         #search-box {
             display: none;
             align-items: center;
-            justify-content: center;
+            justify-content: center !important;
             margin: auto;
-            margin-top: 3rem;
+            margin-top: 1rem;
+            // left: 100%;
+            // top: 50%;
+            // opacity: 0;
+            // visibility: hidden;
+            // transform: translateY(-10px);
+            // transition: all 0.5s ease;
             input {
                 border: none;
                 border-radius: 15px;
@@ -62,8 +69,13 @@ body {
                 margin-left: 15px;
                 color: #fff;
             }
-            &:active {
-                display: block;
+            &.active {
+                display: flex !important;
+                justify-content: center;
+                // opacity: 1;
+                // visibility: visible;
+                // transform: translateY(0);
+                // transition: all 0.5s ease;
             }
         }
 
@@ -142,10 +154,10 @@ body {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: normal;
-            flex-grow: 1; // Пусть растягивается
-            word-break: break-word; // Разбивает длинные слова
-            white-space: normal; // Разрешает перенос строк
-            max-width: 70%; // Ограничение ширины (можно подогнать)
+            flex-grow: 1;
+            word-break: break-word;
+            white-space: normal;
+            max-width: 70%; 
         }
 
         .btn-complete,
@@ -216,7 +228,7 @@ body {
 @media (max-width: 1024px) {
     .search-box {
         input {
-            width: 100% !important;
+            width: 70% !important;
             padding: 12px;
         }
 
@@ -243,7 +255,7 @@ body {
 @media (max-width: 768px) {
     .search-box {
         input {
-            width: 100% !important;
+            width: 70% !important;
             padding: 12px;
         }
 
@@ -258,7 +270,7 @@ body {
             margin: 10px 0;
         }
     }
-    
+
     .main-section .input-box input {
         width: 90%;
         padding: 12px;
@@ -283,8 +295,9 @@ body {
 }
 @media (max-width: 480px) {
     .search-box {
+        display: flex;
         input {
-            width: 100% !important;
+            width: 80% !important;
             padding: 12px;
         }
 
