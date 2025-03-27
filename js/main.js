@@ -8,10 +8,7 @@ function addTaskToDOM(taskText, isCompleted = false) {
 
   let newTaskText = document.createElement("p");
   newTaskText.textContent = taskText;
-
-  if (isCompleted) {
-    newTaskText.classList.add("completed");
-  }
+  newTaskText.classList.add(isCompleted ? "completed" : "active");
 
   let btnComplete = document.createElement("button");
   btnComplete.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -26,7 +23,13 @@ function addTaskToDOM(taskText, isCompleted = false) {
   btnEdit.classList.add("btn-edit");
 
   btnComplete.addEventListener("click", function () {
-    newTaskText.classList.toggle("completed");
+    if (newTaskText.classList.contains("completed")) {
+      newTaskText.classList.remove("completed");
+      newTaskText.classList.add("active");
+    } else {
+      newTaskText.classList.remove("active");
+      newTaskText.classList.add("completed");
+    }
     saveTasksToLocalStorage();
   });
 
@@ -62,7 +65,6 @@ function addTaskToDOM(taskText, isCompleted = false) {
     }
   });
 
-
   newTask.appendChild(newTaskText);
   newTask.appendChild(btnEdit);
   newTask.appendChild(btnComplete);
@@ -73,26 +75,104 @@ function addTaskToDOM(taskText, isCompleted = false) {
   tasksBox.style.display = "flex";
 }
 
+const btnAll = document.getElementById("btn-all");
+const btnActive = document.getElementById("btn-active");
+const btnCompleted = document.getElementById("btn-completed");
+const btnClear = document.getElementById("btn-clear");
+const underline = document.querySelectorAll("underline");
+const underlineAll = document.querySelector(".underline.all");
+const underlineActive = document.querySelector(".underline.active");
+const underlineCompleted = document.querySelector(".underline.completed");
+const underlineSearch = document.querySelector(".underline.search");
 
-let searchBox = document.getElementById("search-box");
-let btnSearch = document.getElementById("btn-search");
+
+function filterTasks(filterType) {
+  let tasks = document.querySelectorAll(".task-item");
+
+  tasks.forEach(task => {
+    const taskText = task.querySelector("p");
+
+    if (filterType === "all") {
+      task.style.display = "flex";
+    }
+    else if (filterType === "active") {
+      task.style.display = taskText.classList.contains("completed") ? "none" : "flex";
+    }
+    else if (filterType === "completed") {
+      task.style.display = taskText.classList.contains("completed") ? "flex" : "none";
+    }
+  });
+}
+
+function clearCompletedTasks() {
+  let tasks = document.querySelectorAll('.task-item');
+
+  tasks.forEach(task => {
+    if (task.querySelector('p').classList.contains("completed")) {
+      task.remove();
+    }
+  });
+
+  saveTasksToLocalStorage();
+}
+
+btnAll.addEventListener("click", function () {
+  filterTasks("all");
+  underlineAll.style.opacity = "1";
+  underlineActive.style.opacity = "0";
+  underlineCompleted.style.opacity = "0";
+  underlineSearch.style.opacity = "0";
+});
+
+btnActive.addEventListener("click", function () {
+  filterTasks("active");
+  underlineActive.style.opacity = "1";
+  underlineAll.style.opacity = "0";
+  underlineCompleted.style.opacity = "0";
+  underlineSearch.style.opacity = "0";
+});
+
+btnCompleted.addEventListener("click", function () {
+  filterTasks("completed");
+  underlineCompleted.style.opacity = "1";
+  underlineAll.style.opacity = "0";
+  underlineActive.style.opacity = "0";
+  underlineSearch.style.opacity = "0";
+});
+
+btnClear.addEventListener("click", function () {
+  clearCompletedTasks();
+});
+
+
+const searchBox = document.getElementById("search-box");
+const btnSearch = document.getElementById("btn-search");
 
 btnSearch.addEventListener("click", function () {
   searchBox.classList.toggle("active");
+  underlineSearch.style.opacity = "1";
+  underlineAll.style.opacity = "0";
+  underlineActive.style.opacity = "0";
+  underlineCompleted.style.opacity = "0";
 });
 
 function searchTasks() {
   const searchTerm = document.getElementById("search").value.toLowerCase();
   const tasks = document.querySelectorAll('.task-item');
+  let hasResults = false;
 
   tasks.forEach(task => {
     const taskText = task.querySelector('p').textContent.toLowerCase();
     if (taskText.includes(searchTerm)) {
       task.style.display = 'flex';
+      hasResults = true;
     } else {
       task.style.display = 'none';
     }
   });
+
+  const message = document.getElementById("no-tasks-message");
+  message.style.display = hasResults ? 'none' : 'block';
 }
 
 document.getElementById("search").addEventListener("input", searchTasks);

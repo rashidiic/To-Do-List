@@ -1,6 +1,7 @@
 body {
   background-color: #f8f9fa;
   color: #212529;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-section .main-box {
@@ -29,14 +30,54 @@ body {
   justify-content: center;
   margin: auto;
   margin-top: 10px;
+  gap: 15px;
 }
 .main-section .main-box .mainbox-info .functions button {
   padding: 5px 10px;
+  margin-bottom: 4px;
   border-radius: 10px;
   border: none;
   background-color: #1cbe8e;
-  margin-left: 15px;
   color: #fff;
+}
+.main-section .main-box .mainbox-info .functions .btn-all,
+.main-section .main-box .mainbox-info .functions .btn-active,
+.main-section .main-box .mainbox-info .functions .btn-completed,
+.main-section .main-box .mainbox-info .functions .btn-clear,
+.main-section .main-box .mainbox-info .functions .btn-search {
+  padding: 0;
+  margin: 0;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-section .main-box .mainbox-info .functions .btn-all .underline,
+.main-section .main-box .mainbox-info .functions .btn-active .underline,
+.main-section .main-box .mainbox-info .functions .btn-completed .underline,
+.main-section .main-box .mainbox-info .functions .btn-clear .underline,
+.main-section .main-box .mainbox-info .functions .btn-search .underline {
+  opacity: 0;
+  border-radius: 50px;
+  background-color: lightslategray;
+  transition: 0.2s ease-in-out;
+}
+.main-section .main-box .mainbox-info .functions .btn-all .underline {
+  opacity: 1;
+  padding: 2px 20px;
+}
+.main-section .main-box .mainbox-info .functions .btn-active .underline {
+  padding: 2px 35px;
+}
+.main-section .main-box .mainbox-info .functions .btn-completed .underline {
+  padding: 2px 55px;
+}
+.main-section .main-box .mainbox-info .functions .btn-clear .underline {
+  padding: 2px 20px;
+  background-color: transparent;
+}
+.main-section .main-box .mainbox-info .functions .btn-search .underline {
+  padding: 2px 18px;
 }
 .main-section .main-box #search-box {
   display: none;
@@ -111,6 +152,9 @@ body {
   padding: 20px;
   border-radius: 20px;
   display: none;
+}
+.main-section #tasks-box h4 {
+  font-weight: 400;
 }
 .main-section #tasks-box #box {
   width: 20%;

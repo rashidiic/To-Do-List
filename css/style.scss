@@ -1,6 +1,7 @@
 body {
     background-color: #f8f9fa;
     color: #212529;
+    font-family: "Poppins", sans-serif;
 }
 
 .main-section {
@@ -28,13 +29,63 @@ body {
                 justify-content: center;
                 margin: auto;
                 margin-top: 10px;
+                gap: 15px;
                 button {
                     padding: 5px 10px;
+                    margin-bottom: 4px;
                     border-radius: 10px;
                     border: none;
                     background-color: #1cbe8e;
-                    margin-left: 15px;
                     color: #fff;
+                }
+                .btn-all,
+                .btn-active,
+                .btn-completed,
+                .btn-clear,
+                .btn-search {
+                    padding: 0;
+                    margin: 0;
+                    width: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .underline {
+                        opacity: 0;
+                        border-radius: 50px;
+                        background-color: lightslategray;
+                        transition: 0.2s ease-in-out;
+                    }
+                }
+
+                .btn-all {
+                    .underline {
+                        opacity: 1;
+                        padding: 2px 20px;
+                    }
+                }
+                .btn-active {
+                    .underline {
+                        padding: 2px 35px;
+                    }
+                }
+
+                .btn-completed {
+                    .underline {
+                        padding: 2px 55px;
+                    }
+                }
+
+                .btn-clear {
+                    .underline {
+                        padding: 2px 20px;
+                        background-color: transparent;
+                    }
+                }
+
+                .btn-search {
+                    .underline {
+                        padding: 2px 18px;
+                    }
                 }
             }
         }
@@ -124,6 +175,11 @@ body {
         padding: 20px;
         border-radius: 20px;
         display: none;
+
+        h4 {
+            font-weight: 400;
+        }
+
         #box {
             width: 20%;
         }
@@ -157,7 +213,7 @@ body {
             flex-grow: 1;
             word-break: break-word;
             white-space: normal;
-            max-width: 70%; 
+            max-width: 70%;
         }
 
         .btn-complete,
@@ -223,7 +279,6 @@ body {
         opacity: 0.7;
     }
 }
-
 
 @media (max-width: 1024px) {
     .search-box {
