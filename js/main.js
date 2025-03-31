@@ -212,7 +212,6 @@ btnAdd.addEventListener("click", function () {
   }
 
   addTaskToDOM(taskText);
-
   saveTasksToLocalStorage();
 
   input.value = '';
