@@ -1,6 +1,4 @@
 body {
-  background-color: #f8f9fa;
-  color: #212529;
   font-family: "Poppins", sans-serif;
 }
 body ::-moz-selection {
@@ -10,6 +8,55 @@ body ::-moz-selection {
 body ::selection {
   color: #fff;
   background-color: #1cbe8e;
+}
+
+.dark-theme {
+  background-color: #192337;
+  color: #fff;
+}
+.dark-theme ::-moz-selection {
+  background-color: #456bac;
+  color: #fff;
+}
+.dark-theme ::selection {
+  background-color: #456bac;
+  color: #fff;
+}
+.dark-theme .main-section .main-box .search-box .search-wrapper #search {
+  background-color: #fff;
+}
+.dark-theme .main-section .main-box .search-box .search-wrapper #search-button {
+  background-color: #395482;
+}
+.dark-theme .main-section .main-box .main-part .input-box #btn-add {
+  background-color: #395482;
+}
+.dark-theme .main-section .main-box .main-part .input-box #input {
+  background-color: #fff;
+}
+.dark-theme .main-section .main-box .main-part #tasks-box .task-item {
+  background-color: #34496e;
+}
+.dark-theme .main-section .main-box .main-part #tasks-box .task-item p {
+  color: #fff;
+}
+.dark-theme .main-section .main-box .main-part #tasks-box .task-item .completed {
+  color: #b8b8b8 !important;
+  opacity: 0.7;
+}
+.dark-theme .main-section .main-box .main-part #tasks-box .task-item .btn-edit {
+  color: #46b5ff;
+}
+.dark-theme .main-section .main-box .mainbox-info .functions button {
+  background-color: #395482;
+}
+.dark-theme .main-section .main-box .mainbox-info .title-box h1 {
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #f8f9fa;
+  color: #000;
 }
 
 .main-section .main-box {
@@ -79,6 +126,10 @@ body ::selection {
 }
 .main-section .main-box .mainbox-info .functions .btn-completed .underline {
   padding: 2px 55px;
+}
+.main-section .main-box .mainbox-info .functions .btn-theme .underline {
+  padding: 2px 55px;
+  background-color: transparent;
 }
 .main-section .main-box .mainbox-info .functions .btn-clear .underline {
   padding: 2px 20px;

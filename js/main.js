@@ -177,6 +177,32 @@ function searchTasks() {
 
 document.getElementById("search").addEventListener("input", searchTasks);
 
+document.addEventListener("DOMContentLoaded", function () {
+  const btnTheme = document.getElementById("btn-theme");
+  const body = document.getElementById("body");
+
+  function setTheme(theme) {
+    localStorage.setItem("theme", theme);
+
+    if (theme === "dark") {
+      body.classList.add("dark-theme");
+      body.classList.remove("light-theme");
+      btnTheme.classList.add("checked");
+    } else {
+      body.classList.add("light-theme");
+      body.classList.remove("dark-theme");
+      btnTheme.classList.remove("checked");
+    }
+  }
+
+  btnTheme.addEventListener("click", function () {
+    const newTheme = btnTheme.classList.contains("checked") ? "light" : "dark";
+    setTheme(newTheme);
+  });
+
+  const savedTheme = localStorage.getItem("theme") || "light"; // Если темы нет, ставим "light"
+  setTheme(savedTheme);
+});
 
 
 function saveTasksToLocalStorage() {
@@ -203,7 +229,16 @@ function loadTasksFromLocalStorage() {
   }
 }
 
-btnAdd.addEventListener("click", function () {
+btnAdd.addEventListener("click", addTask);
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addTask();
+  }
+});
+
+function addTask() {
   const taskText = input.value.trim();
 
   if (taskText === '') {
@@ -215,6 +250,7 @@ btnAdd.addEventListener("click", function () {
   saveTasksToLocalStorage();
 
   input.value = '';
-});
+}
+
 
 window.addEventListener('load', loadTasksFromLocalStorage);
